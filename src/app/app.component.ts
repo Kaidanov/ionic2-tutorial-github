@@ -3,7 +3,7 @@ import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { HomePage } from '../pages/home/home';
-
+import { DetailsPage } from '../pages/details/details';
 
 @Component({
   template: `<ion-nav [root]="rootPage"></ion-nav>`

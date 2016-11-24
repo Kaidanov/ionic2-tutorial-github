@@ -1,8 +1,11 @@
-<ion-navbar *navbar>
-  <ion-title>
-    GitHub
-  </ion-title>
-</ion-navbar>
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title> GitHub</ion-title>
+  </ion-navbar>
+
+</ion-header>
 
 <ion-content class="home">
   <ion-list inset>
@@ -12,14 +15,20 @@
     </ion-item>
   </ion-list>
   <div padding>
-    <button block (click)="getRepos()">Search</button>
+    <button ion-button outline small color="dark" (click)="getRepos()"> Search </button>
+    <!--<button class="button button-calm" block (click)="getRepos()">Search</button>-->
   </div>
-  <ion-card *ngFor="let repo of foundRepos">
+  <ion-card *ngFor="let repo of foundRepos" (click)="goToDetails(repo)">
     <ion-card-header>
       {{ repo.name }}
     </ion-card-header>
     <ion-card-content>
       {{ repo.description }}
+      <a class="button icon-right ion-chevron-right button-calm">Learn More</a>
+      <!--<button ion-button outline small color="dark" (click)="goToDetails(repo)">   For more details.. </button>-->
+      <!--<button class="button button-calm" (click)="goToDetails(repo)">
+        more details
+      </button>-->
     </ion-card-content>
   </ion-card>
 </ion-content>

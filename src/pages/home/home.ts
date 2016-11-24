@@ -1,5 +1,8 @@
 import { Component } from "@angular/core";
 import { GitHubService } from '../../services/github';
+import { NavController } from 'ionic-angular';
+import { DetailsPage } from '../details/details';
+import {IONIC_DIRECTIVES} from 'ionic-framework/ionic'
 
 @Component({
   templateUrl: 'home.html',
@@ -7,9 +10,10 @@ import { GitHubService } from '../../services/github';
 })
 export class HomePage {
   public foundRepos: any;
-  public username: string ;
+  public username: string;
 
-  constructor(private github: GitHubService) {
+  constructor(private github: GitHubService,
+    private nav: NavController) {
   }
 
   getRepos() {
@@ -23,6 +27,14 @@ export class HomePage {
     );
   }
 
+  goToDetails(repo) {
+    console.log(" hone.ts in goToDetails with object " + JSON.stringify(repo));
+    this.nav.push(DetailsPage, { repo: repo });
+  }
 
- 
+  ionViewDidLoad() {
+    console.log('Hello HomePage Page Loaded');
+  }
+
+
 }
